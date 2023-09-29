@@ -1,0 +1,15 @@
+package lab19;
+
+
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+class StatesAndCapitalsTest
+{
+    @Test void Test_states_and_capitals() throws IOException
+    {
+        StatesAndCapitals sut = new StatesAndCapitals();
+        sut.testStatesAndCapitals();
+    }
+}
