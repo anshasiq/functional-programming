@@ -79,7 +79,7 @@ public class StatesAndCapitals
         // B3. From 1-20, submit the first 5 numbers
         // Use limit()
 
-        List<Integer> firstFiveNumbers = IntStream.range(1, 6).boxed().collect(toList());
+        List<Integer> firstFiveNumbers = IntStream.range(1, 10).boxed().collect(toList()).stream().limit(5).collect(toList());
 
         testResults.put("B3", StatesAndCapitalsCheck.basic3(firstFiveNumbers));
 
@@ -104,7 +104,7 @@ public class StatesAndCapitals
         // Use findAny() or findFirst(), and orElseThrow()
         // Can use filter()
 
-        StateInfo cardinalState = states.stream().filter(s ->s.getStateBird(). equals("cardinal")).findAny() .orElse(null);
+        StateInfo cardinalState = states.stream().filter(s ->s.getStateBird().equals("cardinal")).findAny().orElse(null);
 
         testResults.put("I1", StatesAndCapitalsCheck.int1(cardinalState));
 
