@@ -79,14 +79,14 @@ public class StatesAndCapitals
         // B3. From 1-20, submit the first 5 numbers
         // Use limit()
 
-        List<Integer> firstFiveNumbers = IntStream.range(1, 10).boxed().collect(toList()).stream().limit(5).collect(toList());
+        List<Integer> firstFiveNumbers = IntStream.range(1, 20).boxed().collect(toList()).stream().limit(5).collect(toList());
 
         testResults.put("B3", StatesAndCapitalsCheck.basic3(firstFiveNumbers));
 
         // B4. From 1-20, submit the last 5 numbers
         // Use skip()
 
-        List<Integer> lastFiveNumbers = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20).skip(15).collect(toList());
+        List<Integer> lastFiveNumbers = IntStream.range(1, 21).boxed().skip(15).collect(toList());
 
         testResults.put("B4", StatesAndCapitalsCheck.basic4(lastFiveNumbers));
 
@@ -104,7 +104,7 @@ public class StatesAndCapitals
         // Use findAny() or findFirst(), and orElseThrow()
         // Can use filter()
 
-        StateInfo cardinalState = states.stream().filter(s ->s.getStateBird().equals("cardinal")).findAny().orElse(null);
+        StateInfo cardinalState = states.stream().filter(a ->a.getStateBird().equals("cardinal")).findAny().orElse(null);
 
         testResults.put("I1", StatesAndCapitalsCheck.int1(cardinalState));
 
@@ -118,14 +118,14 @@ public class StatesAndCapitals
         // I3. Find if any state's highest elevation is greater than 21000
         // Use anyMatch()
 
-        Boolean isAnyStateGreaterThan21000Elevation = states.stream().anyMatch(s -> s.getHighestElevationInFeet() > 21000);
+        Boolean isAnyStateGreaterThan21000Elevation = states.stream().anyMatch(a -> a.getHighestElevationInFeet() > 21000);
 
         testResults.put("I3", StatesAndCapitalsCheck.int3(isAnyStateGreaterThan21000Elevation));
 
         // I4. Find if all states have an anthem
         // Use allMatch()
 
-        Boolean doAllStatesHaveAnAnthem = states.stream().allMatch(s ->s.getStateAnthem() != null && !s.getStateAnthem().isEmpty() );
+        Boolean doAllStatesHaveAnAnthem = states.stream().allMatch(a -> a.getStateAnthem().isEmpty());
 
         testResults.put("I4", StatesAndCapitalsCheck.int4(doAllStatesHaveAnAnthem));
 
@@ -182,7 +182,7 @@ public class StatesAndCapitals
         // A22. Submit all state names, separated by "; "
         // Use collect(joining()) and map()
 
-        String allStateNamesSemicolonDelimited = states.stream().map(s -> s.getStateName()).collect(joining("; "));
+        String allStateNamesSemicolonDelimited = states.stream().map(a -> a.getStateName()).collect(joining("; "));
 
         testResults.put("A22", StatesAndCapitalsCheck.adv22(allStateNamesSemicolonDelimited));
 
